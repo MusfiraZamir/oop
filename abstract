@@ -1,0 +1,239 @@
+
+public class Abstract {
+		public static void main (String[] args){
+			
+			
+	int i;
+	
+	Shape[] shapeList =  new Shape[7];
+    shapeList[0] = new Circle(3.0);
+    shapeList[1] = new Rectangle(3.0,4.0);
+    shapeList[2] = new Rectangle(5.0,9.0);
+    shapeList[3] = new oval(3.0,4.0);
+    shapeList[4] = new Square(2.0);
+    shapeList[5] = new Triangle(2.0,1.0,3.0,4.0);
+    shapeList[6] = new Trapezoid(2.0,1.0,1.0,2.0,2.0);
+    
+	for(i=0;i<shapeList.length;i++){
+		System.out.print(shapeList[i].tostring());
+		System.out.print(shapeList[i].area()+" ");
+		System.out.println(shapeList[i].perimeter()+ " ");
+		System.out.print("Color?");
+		System.out.println(shapeList[i].color());
+	}
+		}
+	
+
+}
+
+public class Circle extends oval{
+
+	public double rad;
+public Circle(double rad) {
+		
+		
+		super("Circle");
+		x=y=rad;
+	}
+}
+import java.util.Scanner;
+public class oval extends Shape{
+	
+	public double x,y;
+	
+	public String ShapeName,col;
+	Scanner scn = new Scanner(System.in);
+	public oval (double x, double y){
+	
+		super("Oval");
+	this.x=x;
+	this.y=y;
+	}
+	public oval (String ShapeName)
+	{
+
+		super(ShapeName);
+	}
+			
+	public double area() {
+		return Math.PI*x*y;
+		
+	}
+	public double perimeter()
+	{
+		return 2*Math.PI*x*y;
+	
+	}
+	
+	public String color()
+	
+	{
+		col=scn.next();
+	return col;	
+	}	
+}
+/
+import java.util.Scanner;
+public class Rectangle extends Shape {
+	public double len;
+	public double wid;
+	public String col;
+	double roundoff = Math.round(len);
+
+	
+	Scanner scn = new Scanner(System.in);
+	
+	public Rectangle (double len, double wid){
+		
+		super(" Rectangle");
+		this.len=len;
+		this.wid=wid;
+		
+	}
+	public Rectangle (String ShapeName)
+	{
+
+		super(ShapeName);
+		this.len=len;
+		this.wid=wid;
+			
+	}
+	public double area() {
+		return len* wid;
+		
+	}
+	public double perimeter()
+	{
+		return 2*(len + wid);
+	
+	}
+	
+	public String color()
+	
+	{
+	col=scn.next();
+	return col;	
+	
+	}
+}
+
+public abstract class Shape {
+	
+	public String ShapeName,col;
+	
+	
+	public Shape (String name){
+	 ShapeName = name;}
+	
+	 public abstract double area();
+	 public abstract double perimeter();
+	 public abstract String color();
+
+	 public String tostring()
+	 {
+		 return ShapeName;
+	 }
+	 
+	}
+
+
+
+public abstract class Shape {
+	
+	public String ShapeName,col;
+	
+	
+	public Shape (String name){
+	 ShapeName = name;}
+	
+	 public abstract double area();
+	 public abstract double perimeter();
+	 public abstract String color();
+
+	 public String tostring()
+	 {
+		 return ShapeName;
+	 }
+	 
+	}
+
+
+
+public class Square extends Rectangle{
+	
+	public Square(double side){
+		
+		
+		super("SQUARE");
+		len=wid=side;
+	}
+	
+	
+
+}
+
+import java.util.Scanner;
+public class Trapezoid extends Shape {
+	public double a;
+	public double b;
+	public double h;
+	public double c;
+	public double d;
+	public String col;
+	
+	Scanner scn = new Scanner(System.in);
+	public Trapezoid (double a, double b,double c, double d, double h){
+		super("Trapezoid");
+		this.a=a; this.b=b; this.c=c; this.d=d; this.h=h;
+	}
+public double area()
+{
+	return ((a+b)/2)*h;
+}
+public double perimeter()
+{
+	return a+b+c+d;
+}
+public String color()
+
+{
+col=scn.next();
+return col;	
+
+}
+
+}
+import java.util.Scanner;
+public class Triangle extends Shape {
+	
+	public double b;
+	public double h;
+	public double a;
+	public double c;
+	public String col;
+	
+	Scanner scn = new Scanner(System.in);
+	public Triangle (double b,double h,double a,double c){
+		super("Triangle");
+		this.b=b;		this.h=h;		this.a=a;		this.c=c;
+
+	
+	}
+public double area()
+{
+	return ((b*h)/2);
+}
+public double perimeter()
+{
+	return a+b+c;
+}
+public String color()
+
+{
+col=scn.next();
+return col;	
+
+}
+
+}
+
